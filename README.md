@@ -220,7 +220,7 @@ FORGE is deployed and publicly reachable right now. Everything below works in yo
                                 ▼
           ┌──────────────────────────────────────────┐
           │  Optional: Anthropic API (for /chat)     │
-          │  claude-sonnet-4-5 with tool-use loop     │
+          │  claude-sonnet-4-5 with tool-use loop    │
           └──────────────────────────────────────────┘
 ```
 
