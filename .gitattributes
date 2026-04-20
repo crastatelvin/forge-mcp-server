@@ -1,0 +1,11 @@
+# Language stats: FORGE's headline language is Python (the MCP server).
+# The React dashboard is a consumer of the server — valuable, but not
+# what this repo is "about". Mark it as vendored so GitHub's Linguist
+# attributes the repo's primary language to the FastAPI backend.
+dashboard/** linguist-vendored
+
+# Keep demo-client Python visible — it's a useful worked example.
+# No override needed; default behavior is to detect.
+
+# Normalize line endings across Windows / Unix contributors.
+* text=auto eol=lf
