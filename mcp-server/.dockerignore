@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.env
+storage/tool_calls.jsonl
+storage/notes.json
+workspace/*
+!workspace/.gitkeep
+.git
+.gitignore

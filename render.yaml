@@ -1,0 +1,47 @@
+# ============================================
+# FORGE - Universal MCP Tool Server
+# Render.com infrastructure-as-code manifest
+# Author: Telvin Crasta | CC BY-NC 4.0
+# ============================================
+#
+# After the repo is connected to Render (via the "Blueprint" flow), set these
+# values in the Render dashboard:
+#
+#   FORGE_API_KEY      (required)  - generated strong random string
+#   CORS_ORIGINS       (required)  - https://your-dashboard.vercel.app
+#   ANTHROPIC_API_KEY  (optional)  - enables the /chat endpoint
+#   WEATHER_API_KEY    (optional)  - OpenWeatherMap; wttr.in fallback otherwise
+#
+# Any env var with `sync: false` is a placeholder that Render prompts for.
+
+services:
+  - type: web
+    name: forge-mcp-server
+    env: python
+    rootDir: mcp-server
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      - key: ALLOWED_DIRS
+        value: ./storage,./workspace
+      - key: MAX_FILE_SIZE_MB
+        value: "10"
+      - key: RATE_LIMIT_ENABLED
+        value: "true"
+      - key: RATE_LIMIT_PER_MIN
+        value: "120"
+
+      # --- Secrets & per-deploy config (Render prompts for these) ---
+      - key: FORGE_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: WEATHER_API_KEY
+        sync: false

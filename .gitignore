@@ -1,0 +1,58 @@
+# ============================================
+# FORGE - repo-wide ignore
+# ============================================
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# --- Node ---
+node_modules/
+dashboard/build/
+dashboard/.env
+dashboard/.env.local
+.npm/
+.cache/
+
+# --- Runtime state (user data, should never be in git) ---
+mcp-server/storage/tool_calls.jsonl
+mcp-server/storage/notes.json
+mcp-server/workspace/*
+!mcp-server/workspace/.gitkeep
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Build artifacts ---
+dist/
+build/
+*.tgz
