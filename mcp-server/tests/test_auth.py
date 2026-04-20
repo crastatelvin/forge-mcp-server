@@ -51,3 +51,23 @@ def test_docs_public_even_with_auth(authed_client):
     """OpenAPI docs must remain reachable — they expose no secrets."""
     assert authed_client.get("/openapi.json").status_code == 200
     assert authed_client.get("/docs").status_code == 200
+
+
+def test_cors_preflight_bypasses_auth(authed_client):
+    """
+    Browsers never attach Authorization to OPTIONS preflights. The auth
+    middleware must let OPTIONS through so CORS can respond; otherwise the
+    browser blocks the real authed request.
+    """
+    r = authed_client.options(
+        "/tools",
+        headers={
+            "Origin": "https://forge-mcp-server.vercel.app",
+            "Access-Control-Request-Method": "GET",
+            "Access-Control-Request-Headers": "authorization",
+        },
+    )
+    # With auth-skip in place, OPTIONS reaches CORS middleware which answers 200.
+    assert r.status_code == 200, (
+        f"OPTIONS preflight must not require auth (got {r.status_code})"
+    )

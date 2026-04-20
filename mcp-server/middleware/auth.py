@@ -81,6 +81,12 @@ class BearerAuthMiddleware(BaseHTTPMiddleware):
         if expected is None:
             return await call_next(request)
 
+        # CORS preflight: browsers never attach auth headers to an OPTIONS
+        # request. Let the CORS middleware respond so the real (authed)
+        # request can follow.
+        if request.method == "OPTIONS":
+            return await call_next(request)
+
         if is_public_path(request.url.path, self.extra_public):
             return await call_next(request)
 
