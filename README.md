@@ -38,6 +38,7 @@
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
+- [Application Preview](#-application-preview)
 - [Live Demo](#-live-demo)
 - [Features](#-features)
 - [Architecture](#-architecture)
@@ -74,6 +75,59 @@ Users can:
 - Deploy the whole thing on free tiers — **Render** for the server, **Vercel** for the dashboard
 
 The backend is built with **FastAPI + Pydantic 2** and the frontend with **React 18 + Framer Motion + Recharts**. The `/chat` endpoint is **server-proxied**: the Anthropic API key never reaches the browser. Every request is rate-limited by a sliding-window per-IP limiter; every file operation is sandboxed to `ALLOWED_DIRS`; every Python execution runs under a token blocklist with restricted builtins.
+
+---
+
+## 🖼️ Application Preview
+
+<div align="center">
+
+### Dashboard — Live Stats, Tool Registry, and WebSocket Activity Feed
+
+![FORGE Dashboard](docs/screenshots/dashboard.png)
+
+*Top: five live KPI cards with sparklines. Left: every tool grouped by category with search + filter chips. Right: every tool call streamed in real time over WebSocket.*
+
+<br/>
+
+### Tool Registry — 10 Typed, Sandboxed Tools
+
+![Tool Registry](docs/screenshots/tool-registry.png)
+
+*`FILES · WEB · COMPUTE · MEMORY · API · DATA` — click any card to open the interactive tester.*
+
+<br/>
+
+### Interactive Tool Tester — Params, Result, and cURL in One Modal
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Params tab** — preset example chips, typed inputs, `Ctrl+Enter` to run.
+
+![Tool Tester Params](docs/screenshots/tool-tester-params.png)
+
+</td>
+<td width="50%" valign="top">
+
+**Result tab** — success pill, duration, copyable JSON response.
+
+![Tool Tester Result](docs/screenshots/tool-tester-result.png)
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+### Claude Chat — Tool-Use Loop With Inline Tool Cards
+
+![Claude Chat Panel](docs/screenshots/chat.png)
+
+*The chat tab is wired end-to-end via a server-proxied SSE endpoint. Pre-written prompts on the empty state make it easy to see Claude orchestrate FORGE's tools the moment an Anthropic key is configured.*
+
+</div>
 
 ---
 
