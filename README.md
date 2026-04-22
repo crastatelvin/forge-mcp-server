@@ -74,6 +74,10 @@ Users can:
 - Secure it behind a **bearer API key** with one env var, and **lock CORS** to a single origin
 - Deploy the whole thing on free tiers — **Render** for the server, **Vercel** for the dashboard
 
+## License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE).
+
 The backend is built with **FastAPI + Pydantic 2** and the frontend with **React 18 + Framer Motion + Recharts**. The `/chat` endpoint is **server-proxied**: the Anthropic API key never reaches the browser. Every request is rate-limited by a sliding-window per-IP limiter; every file operation is sandboxed to `ALLOWED_DIRS`; every Python execution runs under a token blocklist with restricted builtins.
 
 ---
@@ -705,16 +709,6 @@ The short version lives here; the long version is in [`DECISIONS.md`](./DECISION
 
 ---
 
-## 📜 License
-
-Licensed under **Creative Commons Attribution-NonCommercial 4.0 International** (CC BY-NC 4.0) — see [LICENSE](LICENSE).
-
-You may use, share, and adapt FORGE for **non-commercial purposes** with attribution. For commercial use, please reach out.
-
----
-
-<div align="center">
-
 ### Built by [Telvin Crasta](https://github.com/crastatelvin) · Production-ready · Live today
 
 ⭐ **If FORGE saved you a week of plumbing, star the repo.**
@@ -722,7 +716,3 @@ You may use, share, and adapt FORGE for **non-commercial purposes** with attribu
 [Live Demo](https://forge-mcp-server.vercel.app) · [API Docs](https://forge-mcp-server.onrender.com/docs) · [Deploy Guide](./DEPLOY.md) · [Security Model](./SECURITY.md) · [Design Decisions](./DECISIONS.md)
 
 </div>
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](./LICENSE).
