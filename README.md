@@ -722,3 +722,7 @@ You may use, share, and adapt FORGE for **non-commercial purposes** with attribu
 [Live Demo](https://forge-mcp-server.vercel.app) · [API Docs](https://forge-mcp-server.onrender.com/docs) · [Deploy Guide](./DEPLOY.md) · [Security Model](./SECURITY.md) · [Design Decisions](./DECISIONS.md)
 
 </div>
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE).
