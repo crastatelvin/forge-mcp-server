@@ -73,10 +73,7 @@ Users can:
 - **Chat with Claude** in the built-in Chat tab and watch tool calls render inline as Claude orchestrates them *(optional — works once an `ANTHROPIC_API_KEY` is configured server-side)*
 - Secure it behind a **bearer API key** with one env var, and **lock CORS** to a single origin
 - Deploy the whole thing on free tiers — **Render** for the server, **Vercel** for the dashboard
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](./LICENSE).
+  
 
 The backend is built with **FastAPI + Pydantic 2** and the frontend with **React 18 + Framer Motion + Recharts**. The `/chat` endpoint is **server-proxied**: the Anthropic API key never reaches the browser. Every request is rate-limited by a sliding-window per-IP limiter; every file operation is sandboxed to `ALLOWED_DIRS`; every Python execution runs under a token blocklist with restricted builtins.
 
