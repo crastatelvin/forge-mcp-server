@@ -709,6 +709,10 @@ The short version lives here; the long version is in [`DECISIONS.md`](./DECISION
 
 ---
 
+## License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE).
+
 ### Built by [Telvin Crasta](https://github.com/crastatelvin) · Production-ready · Live today
 
 ⭐ **If FORGE saved you a week of plumbing, star the repo.**
